@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Criptografia com Bubble Master</title>
+  </head>
+  <body>
+    <h1>Criptografia com Bubble Master</h1>
+    
+    <label for="input-text">Digite o texto a ser criptografado:</label>
+    <input type="text" id="input-text"><br><br>
+    
+    <label for="shift-amount">Digite o número de deslocamento:</label>
+    <input type="number" id="shift-amount"><br><br>
+    
+    <button onclick="encrypt()">Criptografar</button>
+    <button onclick="decrypt()">Descriptografar</button><br><br>
+    
+    <label for="output-text">Texto criptografado/descriptografado:</label>
+    <textarea id="output-text" rows="4" cols="50"></textarea>
+    
+    <script src="crypt.js"></script>
+    <script>
+      // Obtém as referências dos elementos do HTML
+      var inputText = document.getElementById("input-text");
+      var shiftAmount = document.getElementById("shift-amount");
+      var outputText = document.getElementById("output-text");
+      
+      // Função para criptografar o texto
+      function encrypt() {
+        // Obtém o texto e o número de deslocamento
+        var text = inputText.value;
+        var amount = parseInt(shiftAmount.value);
+        // Chama a função encrypt e atualiza o campo de saída
+        outputText.value = crypt.encrypt(text, amount);
+      }
+      
+      // Função para descriptografar o texto
+      function decrypt() {
+        // Obtém o texto e o número de deslocamento
+        var text = inputText.value;
+        var amount = parseInt(shiftAmount.value);
+        // Chama a função decrypt e atualiza o campo de saída
+        outputText.value = crypt.decrypt(text, amount);
+      }
+    </script>
+  </body>
+</html>
